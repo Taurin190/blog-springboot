@@ -1,3 +1,6 @@
+def app_name='blog-springboot'
+def app_version='0.1.0'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -13,9 +16,15 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+jar {
+    baseName = "${app_name}"
+    version =  "${app_version}"
+    archiveName = "${baseName}.jar"
+}
+
 bootJar {
-    baseName = 'blog-springboot'
-    version =  '0.1.0'
+    baseName = "${app_name}"
+    version =  "${app_version}"
 }
 
 repositories {
@@ -31,6 +40,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
     compile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.springframework.boot:spring-boot-devtools")
     compile('mysql:mysql-connector-java:5.1.+')
     compile('org.projectlombok:lombok:1.16.10')
     testCompile("junit:junit")
