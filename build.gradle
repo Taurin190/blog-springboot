@@ -44,4 +44,5 @@ dependencies {
     compile('mysql:mysql-connector-java:5.1.+')
     compile('org.projectlombok:lombok:1.16.10')
     testCompile("junit:junit")
+    compile('com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.0.11')
 }
