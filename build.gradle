@@ -1,5 +1,5 @@
 def app_name='blog-springboot'
-def app_version='0.1.0'
+def app_version='1.0.0'
 
 buildscript {
     repositories {
@@ -52,8 +52,9 @@ dependencies {
     compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-devtools")
-    compile('mysql:mysql-connector-java:5.1.+')
+    compile('mysql:mysql-connector-java:8.0.11')
     compile('org.projectlombok:lombok:1.16.10')
     testCompile("junit:junit")
     compile('com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.0.11')
+    compile('com.google.cloud.sql:jdbc-socket-factory-core:1.0.11')
 }
