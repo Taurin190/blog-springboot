@@ -37,7 +37,7 @@ a {
 
 a:focus,
 a:hover {
-  color: #0085A1;
+  color: #d35400;
 }
 
 blockquote {
@@ -114,9 +114,12 @@ img::-moz-selection {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+.main-contents {
+  margin-top: 120px;
+}
 
 @media only screen and (min-width: 992px) {
-  #mainNav {
+  #mainNav.top{
     border-bottom: 1px solid transparent;
     padding: 20px;
     background: transparent;
@@ -275,6 +278,10 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.contents-title {
+  font-size: 45px;
+}
+
 .profile-area {
   border-bottom: 1px solid transparent;
   padding: 20px 20px;
@@ -291,7 +298,7 @@ header.masthead .post-heading .meta a {
 .post-preview>a:focus,
 .post-preview>a:hover {
   text-decoration: none;
-  color: #0085A1;
+  color: #d35400;
 }
 
 .post-preview>a>.post-title {
@@ -325,7 +332,7 @@ header.masthead .post-heading .meta a {
 
 @media only screen and (min-width: 768px) {
   .post-preview>a>.post-title {
-    font-size: 36px;
+    font-size: 30px;
   }
 }
 
@@ -416,16 +423,16 @@ footer .copyright {
 }
 
 .btn-primary {
-  background-color: #0085A1;
-  border-color: #0085A1;
+  background-color: #e67e22;
+  border-color: #e67e22;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
   color: #fff;
-  background-color: #00657b !important;
-  border-color: #00657b !important;
+  background-color: #d35400 !important;
+  border-color: #d35400 !important;
 }
 
 .btn-lg {

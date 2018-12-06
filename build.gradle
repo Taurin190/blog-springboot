@@ -1,5 +1,5 @@
 def app_name='blog-springboot'
-def app_version='1.0.0'
+def app_version='0.1.1'
 
 buildscript {
     repositories {
