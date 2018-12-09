@@ -15,7 +15,7 @@ public class ListController {
             @Nullable
             @RequestParam("p") String page,
             ModelAndView mav) {
-        mav.setViewName("index.html");
+        mav.setViewName("blog_list.html");
         return mav;
     }
 }
