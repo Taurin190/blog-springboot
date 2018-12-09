@@ -114,12 +114,13 @@ img::-moz-selection {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
 .main-contents {
   margin-top: 120px;
 }
 
 @media only screen and (min-width: 992px) {
-  #mainNav.top{
+  #mainNav.top {
     border-bottom: 1px solid transparent;
     padding: 20px;
     background: transparent;
@@ -398,6 +399,7 @@ form .form-group:first-child .floating-label-form-group {
 }
 
 footer {
+  background-color: #ecf0f1;
   padding: 50px 0 65px;
 }
 
