@@ -25,9 +25,9 @@ public class AuthorEntity {
     String authorName;
     @Column(name = "self_introduction")
     String selfIntroduction;
-    @Column(name = "twitter_Account")
+    @Column(name = "twitter_account")
     String twitterAccount;
-    @Column(name = "github_Account")
+    @Column(name = "github_account")
     String githubAccount;
     @Column(name = "is_valid")
     boolean isValid;
