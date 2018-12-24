@@ -21,6 +21,8 @@ public class BlogEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
+    @Column(name = "english_title")
+    String englishTitle;
     String title;
     @Column(name = "published_date")
     String publishedDate;
