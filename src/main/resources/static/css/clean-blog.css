@@ -119,6 +119,11 @@ img::-moz-selection {
   margin-top: 120px;
 }
 
+.main-contents.error-message {
+  margin-top: 180px;
+  margin-bottom: 150px;
+}
+
 @media only screen and (min-width: 992px) {
   #mainNav.top {
     border-bottom: 1px solid transparent;
