@@ -26,7 +26,7 @@ public class DetailController {
             @Nullable
             @RequestParam("p") String page,
             ModelAndView mav) {
-
+        blogService.getBlogByID(id);
         mav.setViewName("detail.html");
         return mav;
     }
