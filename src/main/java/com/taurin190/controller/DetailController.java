@@ -1,5 +1,6 @@
 package com.taurin190.controller;
 
+import com.taurin190.entity.BlogEntity;
 import com.taurin190.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -26,8 +27,9 @@ public class DetailController {
             @Nullable
             @RequestParam("p") String page,
             ModelAndView mav) {
-        blogService.getBlogByID(id);
+        BlogEntity entity = blogService.getBlogByID(id);
         mav.setViewName("detail.html");
+        mav.addObject("blog", entity);
         return mav;
     }
 }
