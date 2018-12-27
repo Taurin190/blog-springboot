@@ -24,6 +24,8 @@ public class BlogEntity {
     @Column(name = "english_title")
     String englishTitle;
     String title;
+    @Column(name = "sub_date")
+    String subTitle;
     @Column(name = "published_date")
     String publishedDate;
     @Column(name = "blog_body")
