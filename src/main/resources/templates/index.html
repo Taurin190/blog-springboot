@@ -13,7 +13,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>Koichi Taura's Page</h1>
+          <!--/*@thymesVar id="author" type="com.taurin190.entity.AuthorEntity"*/-->
+          <h1 th:text="|${author.authorName} s Page|"></h1>
           <span class="subheading">Software Engineer</span>
         </div>
       </div>
@@ -27,8 +28,9 @@
     <div class="col-lg-8 col-md-10 mx-auto rounded profile-area ">
       <h2 class="contents-title">Profile</h2>
       <div class="float-left col-lg-8 col-md-7 profile-detail">
-        <h3>Taura, Koichi</h3>
-        東京でソフトウェアエンジニアとして働いていて。 PHP, Java, Pythonでバックエンドの開発を行っています。 Docker/Kubernetesへの環境構築移行も行なっております。
+        <!--/*@thymesVar id="author" type="com.taurin190.entity.AuthorEntity"*/-->
+        <h3 th:text="${author.authorName}"></h3>
+        <span th:text="${author.selfIntroduction}"></span>
       </div>
       <div class="float-right col-lg-4 col-md-5 ">
         <img class="img-fluid img-thumbnail" src="img/koichitaura.jpg">
