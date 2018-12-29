@@ -14,7 +14,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
           <!--/*@thymesVar id="author" type="com.taurin190.entity.AuthorEntity"*/-->
-          <h1 th:text="|${author.authorName} s Page|"></h1>
+          <h1 th:text="${author.authorName} + '\'s Page'"></h1>
           <span class="subheading">Software Engineer</span>
         </div>
       </div>
