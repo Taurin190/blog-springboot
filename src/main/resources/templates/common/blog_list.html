@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="blog_list(blog_list)">
+  <!--/*@thymesVar id="blog_list" type="java.util.List"*/-->
+  <div class="row" th:if="!${#lists.isEmpty(blog_list)}">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h2 class="contents-title">Blogs</h2>
+      <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
+      <div class="post-preview" th:each="blog : ${blog_list}" th:object="${blog_list}">
+        <a th:href="@{'/blog/' + ${blog.englishTitle}}">
+          <h3 class="post-title" th:text="${blog.title}"></h3>
+          <h4 class="post-subtitle" th:text="${blog.subTitle}"></h4>
+          </h4>
+        </a>
+        <p class="post-meta">Posted by
+          <!--/*@thymesVar id="author" type="com.taurin190.entity.AuthorEntity"*/-->
+          <a th:href="${author.githubAccount}" th:text="${author.authorName}"></a> <span
+              th:text="${blog.publishedDate}"></span>
+        </p>
+        <hr>
+      </div>
+      <!-- Pager -->
+      <div class="clearfix">
+        <a class="btn btn-primary float-right" th:href="@{/blog}">Older Posts &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
