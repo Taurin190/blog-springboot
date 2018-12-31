@@ -1,12 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="blog_list(blog_list)">
+<div th:fragment="blog_list(blog_list, isListPage)">
   <!--/*@thymesVar id="blog_list" type="java.util.List"*/-->
   <div class="row" th:if="!${#lists.isEmpty(blog_list)}">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <h2 class="contents-title">Blogs</h2>
-      <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
+    <div id="blog" th:class="${isListPage} ? 'main-contents col-lg-8 col-md-10 mx-auto' : 'col-lg-8 col-md-10 mx-auto'">
+      <h1 class="contents-title" th:if="${isListPage}">Blogs</h1>
+      <h2 class="contents-title" th:if="!${isListPage}">Blogs</h2>
       <div class="post-preview" th:each="blog : ${blog_list}" th:object="${blog_list}">
+        <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
         <a th:href="@{'/blog/' + ${blog.englishTitle}}">
           <h3 class="post-title" th:text="${blog.title}"></h3>
           <h4 class="post-subtitle" th:text="${blog.subTitle}"></h4>
@@ -20,8 +21,30 @@
         <hr>
       </div>
       <!-- Pager -->
-      <div class="clearfix">
+      <div class="clearfix" th:if="!${isListPage}">
         <a class="btn btn-primary float-right" th:href="@{/blog}">Older Posts &rarr;</a>
+      </div>
+      <!-- Pager -->
+      <div class="clearfix" th:if="${isListPage}">
+        <!--<nav aria-label="Page navigation example">-->
+        <!--<ul class="pagination justify-content-center">-->
+        <!--<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>-->
+        <!--<li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">1</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">4</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">5</a></li>-->
+        <!--<li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+        <!--</ul>-->
+        <!--</nav>-->
+      </div>
+    </div>
+  </div>
+  <div class="row" th:if="${#lists.isEmpty(blog_list) && isListPage}">
+    <div id="blog-empty" class="main-contents col-lg-8 col-md-10 mx-auto">
+      <h1 class="contents-title">Blogs</h1>
+      <div>
+        現在公開中のブログはありません。
       </div>
     </div>
   </div>
