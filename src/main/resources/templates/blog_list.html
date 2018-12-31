@@ -11,7 +11,7 @@
       <h1 class="contents-title">Blogs</h1>
       <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
       <div class="post-preview" th:each="blog : ${blog_list}" th:object="${blog_list}">
-        <a th:href="@{'/blog/' + ${blog.id}}">
+        <a th:href="@{'/blog/' + ${blog.englishTitle}}">
           <h3 class="post-title" th:text="${blog.title}"></h3>
           <h4 class="post-subtitle" th:text="${blog.subTitle}"></h4>
         </a>

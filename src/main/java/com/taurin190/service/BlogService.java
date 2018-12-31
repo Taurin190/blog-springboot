@@ -21,6 +21,11 @@ public class BlogService {
         return entity;
     }
 
+    public BlogEntity getBlogByEnglishTitle(String englishTitle) {
+        BlogEntity entity = blogRepository.findBlogEntityByEnglishTitleEquals(englishTitle).orElseThrow(NotFoundException::new);
+        return entity;
+    }
+
     public List<BlogEntity> getAllBlogEntity() {
         List<BlogEntity> blogEntities = new ArrayList<>();
         blogEntities = blogRepository.findAll(new Sort(Sort.Direction.DESC, "publishedDate"));

@@ -20,14 +20,14 @@ public class DetailController {
     @Autowired
     private BlogService blogService;
 
-    @GetMapping("/blog/{id}")
+    @GetMapping("/blog/{title}")
     public ModelAndView detail(
             @NotEmpty
-            @PathVariable("id") int id,
+            @PathVariable("title") String title,
             @Nullable
             @RequestParam("p") String page,
             ModelAndView mav) {
-        BlogEntity entity = blogService.getBlogByID(id);
+        BlogEntity entity = blogService.getBlogByEnglishTitle(title);
         mav.setViewName("detail.html");
         mav.addObject("blog", entity);
         return mav;
