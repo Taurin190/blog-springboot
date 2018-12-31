@@ -2,8 +2,10 @@ package com.taurin190.controller;
 
 import com.taurin190.entity.AuthorEntity;
 import com.taurin190.entity.BlogEntity;
+import com.taurin190.entity.HeadEntity;
 import com.taurin190.service.AuthorService;
 import com.taurin190.service.BlogService;
+import com.taurin190.service.HeadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -21,13 +23,18 @@ public class TopController {
     @Autowired
     private BlogService blogService;
 
+    @Autowired
+    private HeadService headService;
+
     @GetMapping("/")
     public ModelAndView index(ModelAndView mav) {
-        AuthorEntity entity = authorService.getAuthorEntityById(new Integer(1));
-        List<BlogEntity> entityList = blogService.getAllBlogEntity();
+        AuthorEntity authorEntity = authorService.getAuthorEntityById(new Integer(1));
+        List<BlogEntity> blogEntityList = blogService.getAllBlogEntity();
+        HeadEntity headEntity = headService.getHeadEntity("top");
         mav.setViewName("index.html");
-        mav.addObject("author", entity);
-        mav.addObject("blog_list", entityList);
+        mav.addObject("author", authorEntity);
+        mav.addObject("blog_list", blogEntityList);
+        mav.addObject("head_object", headEntity);
         return mav;
     }
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/head::common_head"></head>
+<!--/*@thymesVar id="head_object" type="com.taurin190.entity.HeadEntity"*/-->
+<head th:replace="common/head::common_head(${head_object.title},${head_object.description},${head_object.shareUrl},${head_object.keyword})"></head>
 <body>
 <!-- Navigation -->
 <div th:replace="common/nav::mainNav"></div>
