@@ -288,6 +288,10 @@ header.masthead .post-heading .meta a {
   font-size: 45px;
 }
 
+.no-blog {
+  margin: 50px 0 150px;
+}
+
 .profile-area {
   border-bottom: 1px solid transparent;
   padding: 20px 20px;
