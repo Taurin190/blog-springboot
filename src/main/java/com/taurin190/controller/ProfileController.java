@@ -1,7 +1,6 @@
 package com.taurin190.controller;
 
 import com.taurin190.entity.AuthorEntity;
-import com.taurin190.entity.BlogEntity;
 import com.taurin190.entity.HeadEntity;
 import com.taurin190.service.AuthorService;
 import com.taurin190.service.BlogService;
@@ -25,7 +24,7 @@ public class ProfileController {
     public ModelAndView index(ModelAndView mav) {
         AuthorEntity authorEntity = authorService.getAuthorEntityById(new Integer(1));
         HeadEntity headEntity = headService.getHeadEntity("profile");
-        mav.setViewName("index.html");
+        mav.setViewName("profile.html");
         mav.addObject("author", authorEntity);
         mav.addObject("head_object", headEntity);
         return mav;

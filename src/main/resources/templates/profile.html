@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="head_object" type="com.taurin190.entity.HeadEntity"*/-->
+<head th:replace="common/head::common_head(${head_object.title},${head_object.description},${head_object.shareUrl},${head_object.keyword})"></head>
+<body>
+
+<!-- Navigation -->
+<div th:replace="common/nav::mainNav"></div>
+
+<div class="container">
+  <div class="row">
+    <div id="profile" class="col-lg-8 col-md-10 mx-auto rounded main-contents">
+      <h1>Profile</h1>
+      <!--/*@thymesVar id="author" type="com.taurin190.entity.AuthorEntity"*/-->
+      <h2 class="subheading" th:text="${author.authorName}"></h2>
+      <div class="float-left col-lg-8 col-md-7 profile-detail">
+        <span th:text="${author.selfIntroduction}"></span>
+      </div>
+      <div class="float-right col-lg-4 col-md-5 ">
+        <img class="img-fluid img-thumbnail" src="img/koichitaura.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h2 class="subheading">Social</h2>
+      <div class="col-lg-12 col-md-12">
+        <h3 class="subheading">Github</h3>
+        <a href="http://github.com/Taurin190" class="gh-contributions" data-gh-username="Taurin190" target="_blank">Taurin190's contributions</a>
+        <script src="https://ikuwow.github.io/yourcontributions/widget.min.js"></script>
+      </div>
+      <div class="col-lg-6 col-md-6 rounded">
+        <h3 class="subheading">Twitter</h3>
+        <a class="twitter-timeline" data-width="600" data-height="800" href="https://twitter.com/Tauitter51?ref_src=twsrc%5Etfw">Tweets by Tauitter51</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="common/footer::footer"></div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Custom scripts for this template -->
+<script th:src="@{/js/clean-blog.js}"></script>
+</body>
+</html>
