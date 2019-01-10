@@ -1,4 +1,4 @@
-package com.taurin190;
+package com.taurin190.service;
 
 import com.taurin190.entity.AuthorEntity;
 import com.taurin190.exception.NotFoundException;
@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
