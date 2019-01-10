@@ -1,6 +1,7 @@
 package com.taurin190;
 
 import com.taurin190.entity.AuthorEntity;
+import com.taurin190.exception.NotFoundException;
 import com.taurin190.repository.AuthorRepository;
 import com.taurin190.service.AuthorService;
 import org.junit.Before;
@@ -12,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -46,5 +48,15 @@ public class AuthorServiceTest {
         assertEquals("https://github.com/Taurin190", actual.getGithubAccount());
         assertEquals("https://twitter.com/Tauitter51", actual.getTwitterAccount());
         assertTrue(actual.isValid());
+    }
+
+    @Test
+    public void getAuthorEntityByIdThroughNotFound() {
+        when(authorRepository.findById(any(Integer.class))).thenReturn(java.util.Optional.ofNullable(null));
+        try {
+            AuthorEntity actual = authorService.getAuthorEntityById(new Integer(1));
+        } catch (NotFoundException e) {
+            assertEquals("Not Found", e.getMessage());
+        }
     }
 }
