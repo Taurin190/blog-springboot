@@ -2,8 +2,10 @@ package com.taurin190;
 
 import com.taurin190.entity.AuthorEntity;
 import com.taurin190.repository.AuthorRepository;
+import com.taurin190.service.AuthorService;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -17,6 +19,9 @@ import static org.mockito.Mockito.when;
 public class AuthorServiceTest {
     @Mock
     private AuthorRepository authorRepository;
+
+    @InjectMocks
+    private AuthorService authorService;
 
     @Before
     public void setUp() {
@@ -34,12 +39,12 @@ public class AuthorServiceTest {
                 .isValid(true)
                 .build();
         when(authorRepository.findById(any(Integer.class))).thenReturn(java.util.Optional.ofNullable(authorEntity));
-        Optional<AuthorEntity> actual = authorRepository.findById(new Integer(1));
+        AuthorEntity actual = authorService.getAuthorEntityById(new Integer(1));
 
-        assertEquals("Koichi Taura", actual.get().getAuthorName());
-        assertEquals("Nice to meet you", actual.get().getSelfIntroduction());
-        assertEquals("https://github.com/Taurin190", actual.get().getGithubAccount());
-        assertEquals("https://twitter.com/Tauitter51", actual.get().getTwitterAccount());
-        assertTrue(actual.get().isValid());
+        assertEquals("Koichi Taura", actual.getAuthorName());
+        assertEquals("Nice to meet you", actual.getSelfIntroduction());
+        assertEquals("https://github.com/Taurin190", actual.getGithubAccount());
+        assertEquals("https://twitter.com/Tauitter51", actual.getTwitterAccount());
+        assertTrue(actual.isValid());
     }
 }
