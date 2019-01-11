@@ -25,7 +25,7 @@ public class AuthorServiceTest {
     private AuthorService authorService;
 
     @Before
-    public void setUp() {
+    public void setup() {
         MockitoAnnotations.initMocks(this);
     }
 
