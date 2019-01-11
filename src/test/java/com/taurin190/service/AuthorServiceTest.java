@@ -1,5 +1,6 @@
 package com.taurin190.service;
 
+import com.taurin190.BaseTest;
 import com.taurin190.entity.AuthorEntity;
 import com.taurin190.exception.NotFoundException;
 import com.taurin190.repository.AuthorRepository;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class AuthorServiceTest {
+public class AuthorServiceTest extends BaseTest {
     @Mock
     private AuthorRepository authorRepository;
 
@@ -31,14 +32,7 @@ public class AuthorServiceTest {
 
     @Test
     public void getAuthorEntityById() {
-        AuthorEntity authorEntity = AuthorEntity.builder()
-                .id(1)
-                .authorName("Koichi Taura")
-                .selfIntroduction("Nice to meet you")
-                .githubAccount("https://github.com/Taurin190")
-                .twitterAccount("https://twitter.com/Tauitter51")
-                .isValid(true)
-                .build();
+        AuthorEntity authorEntity = getTestAuthorEntity();
         when(authorRepository.findById(any(Integer.class))).thenReturn(java.util.Optional.ofNullable(authorEntity));
         AuthorEntity actual = authorService.getAuthorEntityById(new Integer(1));
 
