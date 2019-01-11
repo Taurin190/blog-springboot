@@ -42,32 +42,9 @@ public class TopControllerTest {
 
     @Test
     public void index() {
-        AuthorEntity authorEntity = AuthorEntity.builder()
-                .id(1)
-                .authorName("Koichi Taura")
-                .selfIntroduction("Nice to meet you")
-                .githubAccount("https://github.com/Taurin190")
-                .twitterAccount("https://twitter.com/Tauitter51")
-                .isValid(true)
-                .build();
-        HeadEntity headEntity = HeadEntity.builder()
-                .title("BLOG TEST - Title")
-                .description("This is test page")
-                .keyword("test")
-                .shareUrl("http://taurin190.com")
-                .build();
-        List<BlogEntity> blogEntityList = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            BlogEntity blogEntity = BlogEntity.builder()
-                    .id(i)
-                    .blogBody("AAAA BBB CC " + String.valueOf(i))
-                    .englishTitle("TEST_BLOG:" + String.valueOf(i))
-                    .title("テストブログ" + String.valueOf(i))
-                    .authorId(1)
-                    .isValid(true)
-                    .build();
-            blogEntityList.add(blogEntity);
-        }
+        AuthorEntity authorEntity = getTestAuthorEntity();
+        HeadEntity headEntity = getTestHeadEntity();
+        List<BlogEntity> blogEntityList = getTestBlogEntityList();
 
         when(authorService.getAuthorEntityById(any(Integer.class))).thenReturn(authorEntity);
         when(headService.getHeadEntity(any(String.class))).thenReturn(headEntity);
@@ -85,17 +62,20 @@ public class TopControllerTest {
         assertTrue(map.containsKey("blog_list"));
         List<BlogEntity> actualBlogEntityList = (List<BlogEntity>) map.get("blog_list");
 
+        // assert AuthorEntity
         assertEquals("Koichi Taura", actualAuthorEntity.getAuthorName());
         assertEquals("Nice to meet you", actualAuthorEntity.getSelfIntroduction());
         assertEquals("https://github.com/Taurin190", actualAuthorEntity.getGithubAccount());
         assertEquals("https://twitter.com/Tauitter51", actualAuthorEntity.getTwitterAccount());
         assertTrue(actualAuthorEntity.isValid());
 
+        // assert HeadEntity
         assertEquals("BLOG TEST - Title", actualHeadEntity.getTitle());
         assertEquals("This is test page", actualHeadEntity.getDescription());
         assertEquals("test", actualHeadEntity.getKeyword());
         assertEquals("http://taurin190.com", actualHeadEntity.getShareUrl());
 
+        // assert List<BlogEntity>
         assertEquals(10, actualBlogEntityList.size());
         assertEquals(new Integer(1), actualBlogEntityList.get(0).getId());
         assertEquals("AAAA BBB CC 1", actualBlogEntityList.get(0).getBlogBody());
@@ -109,5 +89,41 @@ public class TopControllerTest {
         assertEquals("AAAA BBB CC 10", actualBlogEntityList.get(9).getBlogBody());
         assertEquals("TEST_BLOG:10", actualBlogEntityList.get(9).getEnglishTitle());
         assertEquals("テストブログ10", actualBlogEntityList.get(9).getTitle());
+    }
+
+    private AuthorEntity getTestAuthorEntity() {
+        return AuthorEntity.builder()
+                .id(1)
+                .authorName("Koichi Taura")
+                .selfIntroduction("Nice to meet you")
+                .githubAccount("https://github.com/Taurin190")
+                .twitterAccount("https://twitter.com/Tauitter51")
+                .isValid(true)
+                .build();
+    }
+
+    private List<BlogEntity> getTestBlogEntityList() {
+        List<BlogEntity> blogEntityList = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            BlogEntity blogEntity = BlogEntity.builder()
+                    .id(i)
+                    .blogBody("AAAA BBB CC " + String.valueOf(i))
+                    .englishTitle("TEST_BLOG:" + String.valueOf(i))
+                    .title("テストブログ" + String.valueOf(i))
+                    .authorId(1)
+                    .isValid(true)
+                    .build();
+            blogEntityList.add(blogEntity);
+        }
+        return blogEntityList;
+    }
+
+    private HeadEntity getTestHeadEntity() {
+        return HeadEntity.builder()
+                .title("BLOG TEST - Title")
+                .description("This is test page")
+                .keyword("test")
+                .shareUrl("http://taurin190.com")
+                .build();
     }
 }
