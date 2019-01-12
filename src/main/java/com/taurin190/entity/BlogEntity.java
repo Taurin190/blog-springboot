@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "blog")
@@ -13,7 +15,8 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BlogEntity {
+public class BlogEntity  implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
@@ -31,4 +34,7 @@ public class BlogEntity {
     boolean isValid;
     @Column(name = "author_id", columnDefinition = "int default 1")
     Integer authorId;
+
+    @ManyToMany(mappedBy = "blogList")
+    List<TagEntity> tagList;
 }
