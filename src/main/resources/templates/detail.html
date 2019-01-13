@@ -13,7 +13,7 @@
         <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
         <h1 th:text="${blog.title}"></h1>
         <h2 class="subheading" th:text="${blog.subTitle}"></h2>
-        <span th:text="${blog.blogBody}"></span>
+        <span th:utext="${blog.blogBody}"></span>
       </div>
     </div>
   </div>

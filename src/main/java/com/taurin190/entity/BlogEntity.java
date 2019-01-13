@@ -28,7 +28,7 @@ public class BlogEntity  implements Serializable {
     String subTitle;
     @Column(name = "published_date", nullable = false)
     String publishedDate;
-    @Column(name = "blog_body", columnDefinition = "BLOB")
+    @Column(name = "blog_body", columnDefinition = "TEXT")
     String blogBody;
     @Column(name = "is_valid", columnDefinition = "bit default 0")
     boolean isValid;
