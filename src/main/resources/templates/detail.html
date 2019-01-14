@@ -10,9 +10,13 @@
   <div class="container">
     <div class="row">
       <div class="main-contents col-lg-8 col-md-10 mx-auto">
+        <div class="title-pane">
+          <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
+          <h1 th:text="${blog.title}"></h1>
+          <span class="published_date" th:text="${blog.publishedDate}"></span>
+        </div>
         <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
-        <h1 th:text="${blog.title}"></h1>
-        <span th:utext="${blog.blogBody}"></span>
+        <div th:utext="${blog.blogBody}"></div>
       </div>
     </div>
   </div>
