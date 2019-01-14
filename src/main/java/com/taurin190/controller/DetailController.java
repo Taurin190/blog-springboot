@@ -33,7 +33,7 @@ public class DetailController {
             @RequestParam("p") String page,
             ModelAndView mav) {
         BlogEntity entity = blogService.getBlogByEnglishTitle(title);
-        HeadEntity headEntity = headService.getHeadEntity("detail");
+        HeadEntity headEntity = headService.getDetailHeadEntity("detail", entity);
         mav.setViewName("detail.html");
         mav.addObject("blog", entity);
         mav.addObject("head_object", headEntity);

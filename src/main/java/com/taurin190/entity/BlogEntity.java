@@ -24,8 +24,8 @@ public class BlogEntity  implements Serializable {
     String englishTitle;
     @Column(nullable = false)
     String title;
-    @Column(name = "sub_title", nullable = false)
-    String subTitle;
+    @Column(name = "summary", nullable = false)
+    String summary;
     @Column(name = "published_date", nullable = false)
     String publishedDate;
     @Column(name = "blog_body", columnDefinition = "TEXT")

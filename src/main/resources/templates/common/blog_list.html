@@ -10,7 +10,7 @@
         <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
         <a th:href="@{'/blog/' + ${blog.englishTitle}}">
           <h3 class="post-title" th:text="${blog.title}"></h3>
-          <h4 class="post-subtitle" th:text="${blog.subTitle}"></h4>
+          <h4 class="post-subtitle" th:text="${blog.summary}"></h4>
           </h4>
         </a>
         <p class="post-meta">Posted by
