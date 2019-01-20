@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,6 +36,12 @@ public class BlogEntity  implements Serializable {
     @Column(name = "author_id", columnDefinition = "int default 1")
     Integer authorId;
 
-    @ManyToMany(mappedBy = "blogList")
-    List<TagEntity> tagList;
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name="jnd_blog_tag", joinColumns = @JoinColumn( name = "blog_id"),
+            inverseJoinColumns = @JoinColumn(name="tag_id"))
+    List<TagEntity> tagList = new ArrayList<>( );
 }
