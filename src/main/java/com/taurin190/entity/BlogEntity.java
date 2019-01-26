@@ -1,21 +1,20 @@
 package com.taurin190.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity
-@Table(name = "blog")
-@Builder
-@Data
+@Getter
+@Setter
+@ToString(exclude = "tagList")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "blog")
 public class BlogEntity  implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,7 +40,7 @@ public class BlogEntity  implements Serializable {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             })
-    @JoinTable(name="jnd_blog_tag", joinColumns = @JoinColumn( name = "blog_id"),
-            inverseJoinColumns = @JoinColumn(name="tag_id"))
-    List<TagEntity> tagList = new ArrayList<>( );
+    @JoinTable(name="jnd_blog_tag", joinColumns = { @JoinColumn( name = "blog_id") },
+            inverseJoinColumns = { @JoinColumn(name="tag_id") })
+    Set<TagEntity> tagList = new HashSet<>( );
 }

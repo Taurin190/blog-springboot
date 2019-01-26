@@ -1,21 +1,20 @@
 package com.taurin190.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity
-@Table(name = "tag")
-@Builder
-@Data
+@Getter
+@Setter
+@ToString(exclude = "blogList")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "tag")
 public class TagEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +28,5 @@ public class TagEntity implements Serializable {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
             }, mappedBy = "tagList")
-    List<BlogEntity> blogList = new ArrayList<>();
+    Set<BlogEntity> blogList = new HashSet<>();
 }
