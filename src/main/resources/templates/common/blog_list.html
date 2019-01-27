@@ -1,17 +1,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="blog_list(blog_list, isListPage)">
+<div th:fragment="blog_list(blog_list, isListPage, contents_title)">
   <!--/*@thymesVar id="blog_list" type="java.util.List"*/-->
   <div class="row" th:if="!${#lists.isEmpty(blog_list)}">
     <div id="blog" th:class="${isListPage} ? 'main-contents col-lg-8 col-md-10 mx-auto' : 'col-lg-8 col-md-10 mx-auto'">
-      <h1 class="contents-title" th:if="${isListPage}">Blogs</h1>
-      <h2 class="contents-title" th:if="!${isListPage}">Blogs</h2>
+      <h1 class="contents-title" th:if="${isListPage}" th:text="${contents_title}">Blogs</h1>
+      <h2 class="contents-title" th:if="!${isListPage}" th:text="${contents_title}">Blogs</h2>
       <div class="post-preview" th:each="blog : ${blog_list}" th:object="${blog_list}">
+        
         <!--/*@thymesVar id="blog" type="com.taurin190.entity.BlogEntity"*/-->
         <a th:href="@{'/blog/' + ${blog.englishTitle}}">
           <h3 class="post-title" th:text="${blog.title}"></h3>
           <h4 class="post-subtitle" th:text="${blog.summary}"></h4>
           </h4>
+        </a>
+        <!--/*@thymesVar id="tagList" type="java.util.HashSet"*/-->
+        <a th:each="tag : ${blog.tagList}" th:object="${blog.tagList}" th:href="@{'/tag/' + ${tag.id}}">
+          
+          <!--/*@thymesVar id="tag" type="com.taurin190.entity.TagEntity"*/-->
+          <span class="badge badge-pill badge-primary" th:text="${tag.name}"></span>
         </a>
         <p class="post-meta">Posted by
           <!--/*@thymesVar id="author" type="com.taurin190.entity.AuthorEntity"*/-->

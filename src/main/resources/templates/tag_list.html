@@ -1,7 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common/head::common_head"></head>
+<!--/*@thymesVar id="head_object" type="com.taurin190.entity.HeadEntity"*/-->
+<head th:replace="common/head::common_head(${head_object.title},${head_object.description},${head_object.shareUrl},${head_object.keyword})"></head>
 <body>
 
+<!-- Main Content -->
+<div class="main container">
+
+  <!--/*@thymesVar id="blog_list" type="java.util.List"*/-->
+  <!--/*@thymesVar id="tag" type="com.taurin190.entity.TagEntity"*/-->
+  <div th:replace="common/blog_list::blog_list(${blog_list}, true, 'Blogs with ”' + ${tag.name} + '” tag')"></div>
+</div>
+
+<!-- Navigation -->
+<div th:replace="common/nav::mainNav"></div>
+<!-- Footer -->
+<div th:replace="common/footer::footer"></div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Custom scripts for this template -->
+<script th:src="@{/js/clean-blog.js}"></script>
 </body>
 </html>

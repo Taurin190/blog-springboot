@@ -28,7 +28,6 @@ public class ListController {
     @Autowired
     private HeadService headService;
 
-
     @GetMapping("/blog")
     public ModelAndView list(
             @Nullable
