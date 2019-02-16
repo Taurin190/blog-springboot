@@ -89,6 +89,13 @@ img::-moz-selection {
   background: transparent;
 }
 
+@media only screen and (max-width: 768px) {
+  .img-profile {
+    max-width: 250px;
+    margin: 10px 0;
+  }
+}
+
 #mainNav {
   position: absolute;
   background-color: #343a40;
