@@ -1,7 +1,6 @@
 package com.taurin190.service;
 
 import com.taurin190.BaseTest;
-import com.taurin190.entity.AuthorEntity;
 import com.taurin190.entity.BlogEntity;
 import com.taurin190.exception.NotFoundException;
 import com.taurin190.repository.BlogRepository;
@@ -12,9 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Sort;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
