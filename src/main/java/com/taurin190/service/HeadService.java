@@ -20,7 +20,7 @@ public class HeadService {
         HeadEntity entity = new HeadEntity();
         entity.setTitle(blogEntity.getTitle() + " " + HeadUtil.getProperty(pageName + ".title"));
         entity.setDescription(blogEntity.getSummary());
-        entity.setShareUrl(HeadUtil.getProperty(pageName + ".url") + blogEntity.getEnglishTitle());
+        entity.setShareUrl(HeadUtil.getProperty(pageName + ".url") + "/" + blogEntity.getEnglishTitle());
         entity.setKeyword(HeadUtil.getProperty(pageName + ".keyword"));
         return entity;
     }
