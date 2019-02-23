@@ -3,6 +3,7 @@ package com.taurin190.controller;
 import com.taurin190.BaseTest;
 import com.taurin190.entity.BlogEntity;
 import com.taurin190.entity.HeadEntity;
+import com.taurin190.exception.NotFoundException;
 import com.taurin190.service.BlogService;
 import com.taurin190.service.HeadService;
 import org.junit.Before;
@@ -62,6 +63,17 @@ public class DetailControllerTest extends BaseTest{
         assertEquals("AAAA BBB CC 1", actualBlogEntity.getBlogBody());
         assertEquals("TEST_BLOG:1", actualBlogEntity.getEnglishTitle());
         assertEquals("テストブログ1", actualBlogEntity.getTitle());
+    }
 
+    @Test
+    public void detailWithNotExistingTitle() {
+        when(blogService.getBlogByEnglishTitle(any(String.class))).thenThrow(new NotFoundException("Not Found"));
+        ModelAndView mav = new ModelAndView();
+
+        try {
+            detailController.detail("test", null, mav);
+        } catch(NotFoundException e) {
+            assertEquals("Not Found", e.getMessage());
+        }
     }
 }
