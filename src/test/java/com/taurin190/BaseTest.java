@@ -14,6 +14,7 @@ public class BaseTest {
                 .blogBody("AAAA BBB CC 1")
                 .englishTitle("TEST_BLOG:1")
                 .title("テストブログ1")
+                .summary("テストブログ1のまとめ")
                 .authorId(1)
                 .isValid(true)
                 .build();
