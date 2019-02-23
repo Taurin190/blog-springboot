@@ -18,7 +18,7 @@ public class HeadService {
 
     public HeadEntity getDetailHeadEntity(String pageName, BlogEntity blogEntity) {
         HeadEntity entity = new HeadEntity();
-        entity.setTitle(blogEntity.getTitle() + HeadUtil.getProperty(pageName + ".title"));
+        entity.setTitle(blogEntity.getTitle() + " " + HeadUtil.getProperty(pageName + ".title"));
         entity.setDescription(blogEntity.getSummary());
         entity.setShareUrl(HeadUtil.getProperty(pageName + ".url") + blogEntity.getEnglishTitle());
         entity.setKeyword(HeadUtil.getProperty(pageName + ".keyword"));
