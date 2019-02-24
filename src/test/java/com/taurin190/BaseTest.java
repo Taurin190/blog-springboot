@@ -3,9 +3,12 @@ package com.taurin190;
 import com.taurin190.entity.AuthorEntity;
 import com.taurin190.entity.BlogEntity;
 import com.taurin190.entity.HeadEntity;
+import com.taurin190.entity.TagEntity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class BaseTest {
     protected BlogEntity getTestBlogEntity() {
@@ -53,6 +56,15 @@ public class BaseTest {
                 .description("This is test page")
                 .keyword("test")
                 .shareUrl("http://taurin190.com")
+                .build();
+    }
+
+    protected TagEntity getTestTagEntity() {
+        Set<BlogEntity> testBlogEntityList = new HashSet<>(getTestBlogEntityList());
+        return TagEntity.builder()
+                .id(1)
+                .name("test")
+                .blogList(testBlogEntityList)
                 .build();
     }
 }
