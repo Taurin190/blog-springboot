@@ -31,7 +31,9 @@ public class ContactController {
             ModelAndView mav
     ) {
         System.out.println(contactForm.getName());
+        HeadEntity headEntity = headService.getHeadEntity("contact");
         mav.setViewName("contact.html");
+        mav.addObject("head_object", headEntity);
         return mav;
     }
 }
