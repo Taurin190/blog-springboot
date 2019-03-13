@@ -1,11 +1,13 @@
 package com.taurin190.controller;
 
 import com.taurin190.entity.HeadEntity;
+import com.taurin190.form.ContactForm;
 import com.taurin190.service.HeadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +26,11 @@ public class ContactController {
     }
 
     @PostMapping("/contact/send")
-    public ModelAndView send(ModelAndView mav) {
+    public ModelAndView send(
+            @ModelAttribute ContactForm contactForm,
+            ModelAndView mav
+    ) {
+        System.out.println(contactForm.getName());
         mav.setViewName("contact.html");
         return mav;
     }

@@ -53,7 +53,7 @@ public class ContactControllerTest extends BaseTest {
     @Test
     public void send() {
         ModelAndView mav = new ModelAndView();
-        ModelAndView actual = contactController.send(mav);
+        ModelAndView actual = contactController.send(null, mav);
         assertEquals("contact.html", actual.getViewName());
     }
 }
