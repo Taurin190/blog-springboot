@@ -6,6 +6,8 @@ import com.taurin190.service.HeadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,9 +29,15 @@ public class ContactController {
 
     @PostMapping("/contact/send")
     public ModelAndView send(
+            @Validated
             @ModelAttribute ContactForm contactForm,
+            BindingResult result,
             ModelAndView mav
     ) {
+        if (result.hasErrors()) {
+            mav.setViewName("error.html");
+            return mav;
+        }
         System.out.println(contactForm.getName());
         HeadEntity headEntity = headService.getHeadEntity("contact");
         mav.setViewName("contact.html");
