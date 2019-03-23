@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--/*@thymesVar id="head_object" type="com.taurin190.entity.HeadEntity"*/-->
+<head th:replace="common/head::common_head(${head_object.title},${head_object.description},${head_object.shareUrl},${head_object.keyword})"></head>
+<body>
+
+<!-- Main Content -->
+<div class="main container">
+  <!-- Navigation -->
+  <div th:replace="common/nav::mainNav"></div>
+
+</div>
+
+<!-- Footer -->
+<div th:replace="common/footer::footer"></div>
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Custom scripts for this template -->
+<script th:src="@{/js/clean-blog.js}"></script>
+</body>
+</html>
