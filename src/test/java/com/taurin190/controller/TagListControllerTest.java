@@ -49,7 +49,7 @@ public class TagListControllerTest extends BaseTest {
     public void tag() {
         ModelAndView mav = new ModelAndView();
         ModelAndView actual = tagListController.tag(null, mav);
-        assertEquals("tag_list.html", actual.getViewName());
+        assertEquals("tag_blog_list.html", actual.getViewName());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class TagListControllerTest extends BaseTest {
         ModelAndView actual = tagListController.tagList(null, 1, mav);
         ModelMap map = actual.getModelMap();
 
-        assertEquals("tag_list.html", actual.getViewName());
+        assertEquals("tag_blog_list.html", actual.getViewName());
         assertTrue(map.containsKey("author"));
         AuthorEntity actualAuthorEntity = (AuthorEntity) map.get("author");
         assertTrue(map.containsKey("tag"));

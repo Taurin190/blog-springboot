@@ -39,7 +39,7 @@ public class TagListController {
             @Nullable
             @RequestParam("p") String page,
             ModelAndView mav) {
-        mav.setViewName("tag_list.html");
+        mav.setViewName("tag_blog_list.html");
         return mav;
     }
 
@@ -53,7 +53,7 @@ public class TagListController {
         TagEntity tagEntity = tagService.getTagEntityById(id);
         List<BlogEntity> entityList = blogService.getAllBlogByTagId(id);
         HeadEntity headEntity = headService.getHeadEntity("tag");
-        mav.setViewName("tag_list.html");
+        mav.setViewName("tag_blog_list.html");
         mav.addObject("author", entity);
         mav.addObject("tag", tagEntity);
         mav.addObject("blog_list", entityList);
