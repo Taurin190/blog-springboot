@@ -1,9 +1,7 @@
 package com.taurin190;
 
-import com.taurin190.entity.AuthorEntity;
-import com.taurin190.entity.BlogEntity;
-import com.taurin190.entity.HeadEntity;
-import com.taurin190.entity.TagEntity;
+import com.taurin190.entity.*;
+import com.taurin190.form.ContactForm;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -66,5 +64,31 @@ public class BaseTest {
                 .name("test")
                 .blogList(testBlogEntityList)
                 .build();
+    }
+
+    protected List<WorkEntity> getTestWorkEntityList() {
+        List<WorkEntity> testWorkEntityList = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            WorkEntity entity =
+                    WorkEntity.builder()
+                    .id(i)
+                    .name("work:" + i)
+                    .imgUrl("http://hogehoge.com/" + i)
+                    .summary("このようなもの作りました。")
+                    .publishedDate("2019/01/01")
+                    .url("http://taurin190.com")
+                    .build();
+            testWorkEntityList.add(entity);
+        }
+        return testWorkEntityList;
+    }
+
+    protected ContactForm getTestContactForm() {
+        ContactForm contactForm = new ContactForm();
+        contactForm.setName("aaa");
+        contactForm.setEmail("hogehoge@gmail.com");
+        contactForm.setMessage("aaaaa");
+        contactForm.setPhone("080-1234-5678");
+        return contactForm;
     }
 }

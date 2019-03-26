@@ -3,6 +3,7 @@ package com.taurin190.controller;
 import com.taurin190.BaseTest;
 import com.taurin190.entity.BlogEntity;
 import com.taurin190.entity.HeadEntity;
+import com.taurin190.form.ContactForm;
 import com.taurin190.service.HeadService;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,9 @@ import static org.mockito.Mockito.when;
 public class ContactControllerTest extends BaseTest {
     @Mock
     private HeadService headService;
+
+    @Mock
+    private ContactForm contactForm;
 
     @InjectMocks
     private ContactController contactController;
@@ -53,7 +57,8 @@ public class ContactControllerTest extends BaseTest {
     @Test
     public void send() {
         ModelAndView mav = new ModelAndView();
-        ModelAndView actual = contactController.send(null, mav);
+        ContactForm contactForm = getTestContactForm();
+        ModelAndView actual = contactController.send(contactForm,null, mav);
         assertEquals("contact.html", actual.getViewName());
     }
 }
