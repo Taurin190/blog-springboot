@@ -16,9 +16,6 @@ import java.util.List;
 @EnableAutoConfiguration
 public class WorkController {
     @Autowired
-    AuthorService authorService;
-
-    @Autowired
     private WorkService workService;
 
     @Autowired
