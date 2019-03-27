@@ -22,9 +22,6 @@ public class ContactControllerTest extends BaseTest {
     @Mock
     private HeadService headService;
 
-    @Mock
-    private ContactForm contactForm;
-
     @InjectMocks
     private ContactController contactController;
 
