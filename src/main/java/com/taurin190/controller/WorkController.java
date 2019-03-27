@@ -22,7 +22,7 @@ public class WorkController {
     private HeadService headService;
 
     @GetMapping("/work")
-    public ModelAndView tag(
+    public ModelAndView work(
             @Nullable
             @RequestParam("p") String page,
             ModelAndView mav) {
