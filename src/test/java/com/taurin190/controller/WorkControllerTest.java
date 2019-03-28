@@ -1,8 +1,6 @@
 package com.taurin190.controller;
 
 import com.taurin190.BaseTest;
-import com.taurin190.entity.AuthorEntity;
-import com.taurin190.entity.BlogEntity;
 import com.taurin190.entity.HeadEntity;
 import com.taurin190.entity.WorkEntity;
 import com.taurin190.service.HeadService;
