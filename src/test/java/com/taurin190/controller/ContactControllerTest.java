@@ -56,6 +56,6 @@ public class ContactControllerTest extends BaseTest {
         ModelAndView mav = new ModelAndView();
         ContactForm contactForm = getTestContactForm();
         ModelAndView actual = contactController.send(contactForm,null, mav);
-        assertEquals("contact.html", actual.getViewName());
+        assertEquals("error.html", actual.getViewName());
     }
 }

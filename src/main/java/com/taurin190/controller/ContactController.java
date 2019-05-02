@@ -34,7 +34,7 @@ public class ContactController {
             BindingResult result,
             ModelAndView mav
     ) {
-        if (result.hasErrors()) {
+        if (result == null || result.hasErrors()) {
             mav.setViewName("error.html");
             return mav;
         }
